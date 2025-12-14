@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import Link from "next/link";
 export default function Projects() {
   const projects = [
     {
@@ -30,6 +31,33 @@ export default function Projects() {
       tech: ["Next.js", "Supabase", "TypeScript", "Tailwind"],
       github: "#",
       live: "https://impostor-app-sage.vercel.app/",
+    },
+    {
+      title: "AI Image Classifier (Frontend)",
+      description:
+        "A responsive web application that classifies images into cultural categories using a custom AI model. Features real-time image capture, an interactive carousel, and audio descriptions for accessibility.",
+      image: "/AIFrontend.png",
+      tech: ["Next.js", "React", "Tailwind CSS", "Axios"],
+      github: "https://github.com/Jeremy-Ramirez/frontend-AI-guide",
+      live: "#",
+    },
+    {
+      title: "AI Image Classifier (Backend)",
+      description:
+        "High-performance API powered by FastAPI and TensorFlow. Serves a Keras classification model to identify object categories and provides corresponding audio feedback. Optimized for fast inference.",
+      image: "/AIBackend.png",
+      tech: ["FastAPI", "Python", "TensorFlow", "Keras"],
+      github: "https://github.com/Jeremy-Ramirez/backend-AI-guide",
+      live: "#",
+    },
+    {
+      title: "Discord Music & Utility Bot",
+      description:
+        "A feature-rich Discord bot developed in TypeScript. Capabilities include music playback, voice channel integration, and utility commands to enhance server management and user interaction.",
+      image: "/DiscordBot.png",
+      tech: ["TypeScript", "Discord.js", "Node.js"],
+      github: "https://github.com/Jeremy-Ramirez/botdiscord",
+      live: "#",
     },
   ];
   return (
@@ -68,14 +96,24 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <a href={project.github} className="flex items-center gap-2 ">
+                  <Link
+                    href={project.github}
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FaGithub size={16} />
                     Code
-                  </a>
-                  <a href={project.live} className="flex items-center gap-2 ">
+                  </Link>
+                  <Link
+                    href={project.live}
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FaExternalLinkAlt size={16} />
                     Live Demo
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

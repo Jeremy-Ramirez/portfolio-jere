@@ -14,6 +14,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 import { Projects, Skills, Experiences, Education, Footer } from "./components";
 import { Contact } from "./components/Contact";
+import Link from "next/link";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -115,18 +116,30 @@ export default function Home() {
                   Download Resume
                 </button>
                 <div className="flex gap-4 items-center px-4">
-                  <a href="#" className="">
+                  <Link
+                    href={"https://github.com/Jeremy-Ramirez"}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className=""
+                  >
                     <FaGithub size={24} />
-                  </a>
-                  <a href="#" className="">
+                  </Link>
+                  <Link
+                    href={"https://www.linkedin.com/in/jeremy-ramirezg/"}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className=""
+                  >
                     <FaLinkedin size={24} />
-                  </a>
-                  <a href="#" className="">
-                    <FaSquareXTwitter size={24} />
-                  </a>
-                  <a href="#" className="">
+                  </Link>
+                  <Link
+                    href={"mailto:jeremyramirezg@gmail.com"}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className=""
+                  >
                     <FaEnvelope size={24} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
