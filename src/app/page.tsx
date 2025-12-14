@@ -15,6 +15,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { Projects, Skills, Experiences, Education, Footer } from "./components";
 import { Contact } from "./components/Contact";
 import Link from "next/link";
+import { ContactForm } from "./components/ContactForm";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

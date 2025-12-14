@@ -1,31 +1,8 @@
-import { useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-
 import { RiMapPinLine } from "react-icons/ri";
+import { ContactForm } from "./ContactForm";
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
   const contactInfo = [
     {
       icon: FaEnvelope,
@@ -90,71 +67,7 @@ export const Contact = () => {
             </div>
 
             <div className="p-6  rounded-md  cursor-pointer w-full">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    className="w-full p-2 shadow-md rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Your email"
-                    className="w-full p-2 shadow-md rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    className="w-full p-2 shadow-md rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full border rounded-md border-green-600 p-2 cursor-pointer"
-                >
-                  Send message
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>
