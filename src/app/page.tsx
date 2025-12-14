@@ -10,12 +10,10 @@ import {
   FaGithub,
   FaLinkedin,
 } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
 
 import { Projects, Skills, Experiences, Education, Footer } from "./components";
 import { Contact } from "./components/Contact";
 import Link from "next/link";
-import { ContactForm } from "./components/ContactForm";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -97,9 +95,7 @@ export default function Home() {
             <div className="flex-1 text-left">
               <h1 className="text-5xl md:text-7xl font-bold text-green-700 mb-6 leading-tight">
                 Hi! <br />
-                <span className="">
-                  I'm <span className="text-red-700">Jere</span>
-                </span>
+                I&apos;m <span className="text-red-700">Jere</span>
               </h1>
               <h2 className="text-xl md:text-2xl font-semibold  mb-4">
                 Full Stack Developer & Engineer

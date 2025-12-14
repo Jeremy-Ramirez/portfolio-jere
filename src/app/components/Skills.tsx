@@ -18,7 +18,6 @@ import {
   SiExpress,
   SiTailwindcss,
   SiOpenai,
-  SiGoogle,
   SiClaude,
   SiGooglegemini,
 } from "react-icons/si";

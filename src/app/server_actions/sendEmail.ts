@@ -34,7 +34,7 @@ export async function sendEmail(
   try {
     console.log(name, email, message);
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: ["jeremyramirezgaleotti@gmail.com"],
       subject: `New message from ${name}`,
@@ -58,7 +58,7 @@ export async function sendEmail(
 
     revalidatePath("/");
     return { message: "Email sent successfully!", success: true, errors: {} };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Server error:", error);
     return {
       message: "Something went wrong. Please try again.",
