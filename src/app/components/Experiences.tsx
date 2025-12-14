@@ -1,12 +1,20 @@
-import React from 'react'
+import React from "react";
 
 export default function Experiences() {
+  const experiences = [
+    {
+      title: "Student Assistant",
+      company: "Syddansk Universitet - University of Southern Denmark",
+      period: "2025 - Present",
+      tasks: [
+        "Assisting in the development of a web application for the University of Southern Denmark.",
+      ],
+    },
 
- const experiences = [
     {
       title: "Software Specialist / Senior Full Stack Developer",
       company: "Telconet LATAM",
-      period: "2023 - Present",
+      period: "2023 - 2025",
       tasks: [
         "Led development of scalable web applications using NextJS, Typescript, FastAPI, Redis, Docker, Aws, Postgresql, Exasol.",
         "Implemented web scrapping for downloading Tableau reports, streamlining process and reducing manual intervention by 90% using Python, Selenium, Prefect 2.0.",
@@ -43,47 +51,39 @@ export default function Experiences() {
     },
   ];
 
-
-
-
   return (
-        
-      <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Work Experience
-            </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-          </div>
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-600"
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      {exp.title}
-                    </h3>
-                    <p className="text-blue-600 font-semibold">{exp.company}</p>
-                  </div>
-                  <span className="text-gray-500 font-medium">
-                    {exp.period}
-                  </span>
-                </div>
-                {exp.tasks && exp.tasks.length > 0 ? (
-                  <ul className="list-disc pl-5 mb-4 text-gray-600">
-                    {exp.tasks.map((task, taskIndex) => (
-                      <li key={taskIndex}>{task}</li>
-                    ))}
-                  </ul>
-                ) : null}
-              </div>
-            ))}
-          </div>
+    <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8 ">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold  mb-4">
+            Work Experience
+          </h2>
+          <div className="w-20 h-1 mx-auto"></div>
         </div>
-      </section>
-  )
+        <div className="space-y-8">
+          {experiences.map((exp, index) => (
+            <div
+              key={index}
+              className=" rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 border-l-4 border-r border-green-700 cursor-pointer"
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-bold ">{exp.title}</h3>
+                  <p className=" font-semibold">{exp.company}</p>
+                </div>
+                <span className=" font-medium">{exp.period}</span>
+              </div>
+              {exp.tasks && exp.tasks.length > 0 ? (
+                <ul className="list-disc pl-5 mb-4 ">
+                  {exp.tasks.map((task, taskIndex) => (
+                    <li key={taskIndex}>{task}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
