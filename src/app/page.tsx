@@ -26,7 +26,7 @@ import { useLanguageStoreHydrated } from "@/store/useLanguageStore";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
-  const { t } = useLanguageStoreHydrated();
+  const { t } = useLanguageStoreHydrated(); // get translation state from store
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -142,30 +142,43 @@ export default function Home() {
             </div>
 
             <div className="flex-1 flex justify-center md:justify-center relative">
-              <div className="group w-[300px] h-[600px] [perspective:1000px]">
+              <div className="relative w-[300px] h-[600px] overflow-hidden rounded-xl shadow-2xl">
+                {/* Base Image - Always visible */}
+                <div className="absolute inset-0 w-full h-full">
+                  <Image
+                    src="/Jere.jpeg"
+                    alt="Jeremy Ramirez"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+
+                {/* Hero Image - Slides up */}
                 <div
-                  className={`relative w-full h-full transition-all duration-1000 [transform-style:preserve-3d] ${
-                    isFlipped ? "[transform:rotateY(180deg)]" : ""
+                  className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-out ${
+                    isFlipped
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-full opacity-0"
                   }`}
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(0,0,0,0.3), transparent)",
+                  }}
                 >
-                  {/* Front Face */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] cursor-pointer ">
-                    <Image
-                      src="/JereHero.png"
-                      alt="Jeremy Ramirez"
-                      fill
-                      className="object-cover rounded-xl border-4  shadow-xl"
-                      priority
-                    />
-                  </div>
-                  {/* Back Face */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <Image
-                      src="/Jere.jpeg"
-                      alt="Jeremy Ramirez"
-                      fill
-                      className="object-cover rounded-xl border-4 border-gray-100 shadow-xl"
-                    />
+                  <Image
+                    src="/JereHero.png"
+                    alt="Jeremy Ramirez - Hero Mode"
+                    fill
+                    className="object-cover"
+                  />
+                  {/* Glow effect */}
+                  <div
+                    className={`absolute inset-0 transition-opacity duration-500 ${
+                      isFlipped ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-green-500/20 via-transparent to-transparent blur-xl"></div>
                   </div>
                 </div>
               </div>
