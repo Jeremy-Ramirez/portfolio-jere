@@ -235,4 +235,4 @@ export const translations = {
 } as const;
 
 export type Language = "es" | "en" | "it";
-export type TranslationKeys = typeof translations.es;
+export type TranslationKeys = (typeof translations)[Language];
