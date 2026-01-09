@@ -1,6 +1,9 @@
+"use client";
 import React from "react";
+import { useLanguageStoreHydrated } from "@/store/useLanguageStore";
 
 export default function Experiences() {
+  const { t } = useLanguageStoreHydrated();
   const experiences = [
     {
       title: "Student Assistant",
@@ -56,7 +59,7 @@ export default function Experiences() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold  mb-4">
-            Work Experience
+            {t.experience.title}
           </h2>
           <div className="w-20 h-1 mx-auto"></div>
         </div>

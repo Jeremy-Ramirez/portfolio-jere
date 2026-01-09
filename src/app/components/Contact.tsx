@@ -5,22 +5,9 @@ import { ContactForm } from "./ContactForm";
 export const Contact = () => {
   const contactInfo = [
     {
-      icon: FaEnvelope,
-      title: "Email",
-      value: "jeremyramirezgaleotti@gmail.com",
-      href: "mailto:jeremyramirezgaleotti@gmail.com",
-    },
-    // {
-    //   icon: FaEnvelope,
-    //   title: "Teléfono",
-    //   value: "+45 50 14 85 36",
-    //   href: "tel:+4550148536",
-    // },
-    {
       icon: RiMapPinLine,
       title: "Location",
       value: "Odense, Denmark",
-      href: "#",
     },
   ];
 
@@ -47,20 +34,15 @@ export const Contact = () => {
                     key={index}
                     className="p-4 hover:shadow-md transition-shadow"
                   >
-                    <a
-                      href={info.href}
-                      className="flex items-center gap-4 group"
-                    >
-                      <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
-                        <info.icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">
-                          {info.title}
-                        </p>
-                        <p className="font-medium">{info.value}</p>
-                      </div>
-                    </a>
+                    <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
+                      <info.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">
+                        {info.title}
+                      </p>
+                      <p className="font-medium">{info.value}</p>
+                    </div>
                   </div>
                 ))}
               </div>

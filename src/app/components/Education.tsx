@@ -1,7 +1,10 @@
+"use client";
 import React from "react";
 import { FaGraduationCap } from "react-icons/fa";
+import { useLanguageStoreHydrated } from "@/store/useLanguageStore";
 
 export default function Education() {
+  const { t } = useLanguageStoreHydrated();
   const education = [
     {
       degree: "Master of Science in Engineering-Software Engineering",
@@ -27,7 +30,9 @@ export default function Education() {
     <section id="education" className="py-16 px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold  mb-4">Education</h2>
+          <h2 className="text-3xl md:text-4xl font-bold  mb-4">
+            {t.education.title}
+          </h2>
           <div className="w-20 h-1  mx-auto"></div>
         </div>
         <div className="relative border-l-2 border-green-700/20 ml-3 md:ml-6 space-y-12 py-4">

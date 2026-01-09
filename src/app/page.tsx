@@ -11,13 +11,22 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 
-import { Projects, Skills, Experiences, Education, Footer } from "./components";
+import {
+  Projects,
+  Skills,
+  Experiences,
+  Education,
+  Footer,
+  LanguageToggle,
+} from "./components";
 import { Contact } from "./components/Contact";
 import Link from "next/link";
+import { useLanguageStoreHydrated } from "@/store/useLanguageStore";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
+  const { t } = useLanguageStoreHydrated();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,11 +36,12 @@ export default function Home() {
   }, []);
 
   const menuItems = [
-    { title: "About", href: "#about" },
-    { title: "Projects", href: "#projects" },
-    { title: "Skills", href: "#skills" },
-    { title: "Experience", href: "#education" },
-    { title: "Contact", href: "#contact" },
+    { title: t.nav.about, href: "#about" },
+    { title: t.nav.education, href: "#education" },
+    { title: t.nav.projects, href: "#projects" },
+    { title: t.nav.skills, href: "#skills" },
+    { title: t.nav.experience, href: "#experience" },
+    { title: t.nav.contact, href: "#contact" },
   ];
 
   return (
@@ -47,16 +57,18 @@ export default function Home() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex space-x-8 items-center">
               {menuItems.map((item) => (
-                <a key={item.title} href={item.href} className="">
+                <a key={item.href} href={item.href} className="">
                   {item.title}
                 </a>
               ))}
+              <LanguageToggle />
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center gap-3">
+              <LanguageToggle />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="cursor-pointer hover:scale-110 transition-transform p-2 text-gray-800"
@@ -75,7 +87,7 @@ export default function Home() {
             <div className="flex flex-col space-y-4 py-4 px-6">
               {menuItems.map((item) => (
                 <a
-                  key={item.title}
+                  key={item.href}
                   href={item.href}
                   className="text-gray-800 hover:text-green-700 transition-colors font-medium border-b border-gray-100 pb-2 last:border-0"
                   onClick={() => setIsMenuOpen(false)}
@@ -94,24 +106,17 @@ export default function Home() {
           <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
             <div className="flex-1 text-left">
               <h1 className="text-5xl md:text-7xl font-bold text-green-700 mb-6 leading-tight">
-                Hi! <br />
-                I&apos;m <span className="text-red-700">Jere</span>
+                {t.hero.greeting} <br />
+                {t.hero.name} <span className="text-red-700">Jere</span>
               </h1>
               <h2 className="text-xl md:text-2xl font-semibold  mb-4">
                 Full Stack Developer & Engineer
               </h2>
               <p className="text-lg mb-8 max-w-2xl leading-relaxed">
-                Computer Science Engineer passionate about creating scalable web
-                applications and solving complex problems. I take great pleasure
-                in conceptualizing and bringing to life visually stunning
-                products.
+                {t.hero.description}
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <button className=" text-white px-8 py-3 rounded-lg  transition-colors flex items-center gap-2">
-                  <FaDownload size={20} />
-                  Download Resume
-                </button>
                 <div className="flex gap-4 items-center px-4">
                   <Link
                     href={"https://github.com/Jeremy-Ramirez"}
@@ -129,12 +134,7 @@ export default function Home() {
                   >
                     <FaLinkedin size={24} />
                   </Link>
-                  <Link
-                    href={"mailto:jeremyramirezg@gmail.com"}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className=""
-                  >
+                  <Link href={`#${t.nav.contact.toLowerCase()}`} className="">
                     <FaEnvelope size={24} />
                   </Link>
                 </div>

@@ -1,4 +1,6 @@
+"use client";
 import { FaPython, FaDocker, FaAws } from "react-icons/fa";
+import { useLanguageStoreHydrated } from "@/store/useLanguageStore";
 import {
   SiTypescript,
   SiFastapi,
@@ -24,6 +26,7 @@ import {
 import { RiNextjsFill } from "react-icons/ri";
 
 export default function Skills() {
+  const { t } = useLanguageStoreHydrated();
   const skillCategories = [
     {
       title: "Frontend",
