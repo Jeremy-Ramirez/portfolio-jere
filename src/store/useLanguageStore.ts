@@ -11,7 +11,6 @@ interface LanguageStore {
   language: Language;
   t: TranslationKeys;
   setLanguage: (lang: Language) => void;
-  toggleLanguage: () => void;
 }
 
 export const useLanguageStore = create<LanguageStore>()(
@@ -20,21 +19,9 @@ export const useLanguageStore = create<LanguageStore>()(
       language: "en",
       t: translations.en,
       setLanguage: (lang) => set({ language: lang, t: translations[lang] }),
-      toggleLanguage: () =>
-        set((state) => {
-          let newLang: Language;
-          if (state.language === "en") {
-            newLang = "es";
-          } else if (state.language === "es") {
-            newLang = "it";
-          } else {
-            newLang = "en";
-          }
-          return { language: newLang, t: translations[newLang] };
-        }),
     }),
     {
-      name: "language-storage-v2", // Changed name to reset old localStorage
+      name: "language-storage", // Changed name to reset old localStorage
       version: 1,
       storage: createJSONStorage(() => localStorage),
     }
@@ -56,7 +43,6 @@ export const useLanguageStoreHydrated = () => {
       language: "en" as Language,
       t: translations.en,
       setLanguage: store.setLanguage,
-      toggleLanguage: store.toggleLanguage,
     };
   }
 
