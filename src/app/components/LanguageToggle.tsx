@@ -37,11 +37,11 @@ export function LanguageToggle() {
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative " ref={dropdownRef}>
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg shadow-md"
+        className="flex items-center gap-2 px-4 py-2 rounded-lg shadow-md cursor-pointer"
         aria-label="Select language"
         aria-expanded={isOpen}
       >
@@ -73,7 +73,7 @@ export function LanguageToggle() {
             <button
               key={lang.code}
               onClick={() => handleLanguageSelect(lang.code)}
-              className={`w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-50 transition-colors ${
+              className={`w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-50 transition-colors cursor-pointer ${
                 language === lang.code ? "bg-green-50" : ""
               }`}
             >
@@ -82,9 +82,6 @@ export function LanguageToggle() {
                 <span className="text-sm font-medium text-gray-900">
                   {lang.label}
                 </span>
-                {/* <span className="text-xs text-gray-500">
-                  {lang.code.toUpperCase()}
-                </span> */}
               </div>
               {language === lang.code && (
                 <svg

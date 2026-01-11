@@ -55,7 +55,7 @@ export const translations = {
         taskManager: {
           title: "Aplicación de Gestión de Tareas Full Stack",
           description:
-            "Aplicación fullstack de gestión de tareas con autenticación AWS Cognito, backend NestJS y funciones serverless Lambda para procesar tareas completadas. Incluye validación Zod, Material-UI, PostgreSQL y arquitectura orientada a microservicios con Docker.",
+            "Aplicación fullstack de gestión de tareas con autenticación AWS Cognito, frontend con NextJS, backend NestJS y funciones serverless Lambda para procesar tareas completadas. Incluye validación Zod, Material-UI, MongoDB y arquitectura orientada a microservicios.",
         },
       },
     },
@@ -137,7 +137,7 @@ export const translations = {
         taskManager: {
           title: "Full Stack Task Management Application",
           description:
-            "Full-stack task management application with AWS Cognito authentication, NestJS backend, and Lambda serverless functions for completed task processing. Features Zod validation, Material-UI, PostgreSQL, and microservice-oriented architecture with Docker.",
+            "Full-stack task management application with AWS Cognito authentication, NextJS frontend, NestJS backend, and Lambda serverless functions for completed task processing. Features Zod validation, Material-UI, MongoDB, and microservice-oriented architecture.",
         },
       },
     },
@@ -220,7 +220,7 @@ export const translations = {
         taskManager: {
           title: "Applicazione Full Stack di Gestione Attività",
           description:
-            "Applicazione fullstack di gestione attività con autenticazione AWS Cognito, backend NestJS e funzioni serverless Lambda per l'elaborazione delle attività completate. Include validazione Zod, Material-UI, PostgreSQL e architettura orientata ai microservizi con Docker.",
+            "Applicazione fullstack di gestione attività con autenticazione AWS Cognito, frontend con NextJS, backend NestJS e funzioni serverless Lambda per l'elaborazione delle attività completate. Include validazione Zod, Material-UI, MongoDB e architettura orientata ai microservizi.",
         },
       },
     },

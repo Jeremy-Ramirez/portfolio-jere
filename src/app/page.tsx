@@ -141,43 +141,99 @@ export default function Home() {
             </div>
 
             <div className="flex-1 flex justify-center md:justify-center relative">
-              <div className="relative w-[300px] h-[600px] overflow-hidden rounded-xl shadow-2xl">
-                {/* Base Image - Always visible */}
-                <div className="absolute inset-0 w-full h-full">
-                  <Image
-                    src="/Jere.jpeg"
-                    alt="Jeremy Ramirez"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+              <div className="relative w-[300px] h-[600px] overflow-visible">
+                {/* Lightning bolts - animated */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Lightning bolt 1 - top right */}
+                  <div
+                    className={`absolute -top-10 -right-8 w-1 bg-gradient-to-b from-yellow-300 via-yellow-500 to-transparent transition-opacity duration-300 ${
+                      isFlipped
+                        ? "opacity-100 animate-lightning-1"
+                        : "opacity-0"
+                    }`}
+                    style={{ height: "80px", transform: "rotate(15deg)" }}
+                  >
+                    <div className="absolute top-1/3 -right-2 w-6 h-1 bg-gradient-to-r from-yellow-400 to-transparent"></div>
+                    <div className="absolute top-1/2 -left-2 w-4 h-1 bg-gradient-to-l from-yellow-400 to-transparent"></div>
+                  </div>
+
+                  {/* Lightning bolt 2 - top left */}
+                  <div
+                    className={`absolute -top-8 -left-10 w-1 bg-gradient-to-b from-cyan-300 via-cyan-500 to-transparent transition-opacity duration-300 ${
+                      isFlipped
+                        ? "opacity-100 animate-lightning-2"
+                        : "opacity-0"
+                    }`}
+                    style={{ height: "70px", transform: "rotate(-20deg)" }}
+                  >
+                    <div className="absolute top-1/4 -left-2 w-5 h-1 bg-gradient-to-l from-cyan-400 to-transparent"></div>
+                    <div className="absolute top-1/2 -right-2 w-4 h-1 bg-gradient-to-r from-cyan-400 to-transparent"></div>
+                  </div>
+
+                  {/* Lightning bolt 3 - right side */}
+                  <div
+                    className={`absolute top-1/3 -right-6 w-1 bg-gradient-to-b from-green-300 via-green-500 to-transparent transition-opacity duration-300 ${
+                      isFlipped
+                        ? "opacity-100 animate-lightning-3"
+                        : "opacity-0"
+                    }`}
+                    style={{ height: "60px", transform: "rotate(10deg)" }}
+                  >
+                    <div className="absolute top-1/3 -right-1 w-4 h-1 bg-gradient-to-r from-green-400 to-transparent"></div>
+                  </div>
+
+                  {/* Lightning bolt 4 - left side */}
+                  <div
+                    className={`absolute top-2/3 -left-8 w-1 bg-gradient-to-t from-purple-300 via-purple-500 to-transparent transition-opacity duration-300 ${
+                      isFlipped
+                        ? "opacity-100 animate-lightning-4"
+                        : "opacity-0"
+                    }`}
+                    style={{ height: "50px", transform: "rotate(-15deg)" }}
+                  >
+                    <div className="absolute top-1/3 -left-1 w-3 h-1 bg-gradient-to-l from-purple-400 to-transparent"></div>
+                  </div>
                 </div>
 
-                {/* Hero Image - Slides up */}
-                <div
-                  className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-out ${
-                    isFlipped
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-full opacity-0"
-                  }`}
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.3), transparent)",
-                  }}
-                >
-                  <Image
-                    src="/JereHero.png"
-                    alt="Jeremy Ramirez - Hero Mode"
-                    fill
-                    className="object-cover"
-                  />
-                  {/* Glow effect */}
+                {/* Image container with glow */}
+                <div className="relative w-[300px] h-[600px] overflow-hidden rounded-xl shadow-2xl">
+                  {/* Base Image - Always visible */}
+                  <div className="absolute inset-0 w-full h-full">
+                    <Image
+                      src="/Jere.jpeg"
+                      alt="Jeremy Ramirez"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+
+                  {/* Hero Image - Slides up */}
                   <div
-                    className={`absolute inset-0 transition-opacity duration-500 ${
-                      isFlipped ? "opacity-100" : "opacity-0"
+                    className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-out ${
+                      isFlipped
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-full opacity-0"
                     }`}
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.3), transparent)",
+                    }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-green-500/20 via-transparent to-transparent blur-xl"></div>
+                    <Image
+                      src="/JereHero.png"
+                      alt="Jeremy Ramirez - Hero Mode"
+                      fill
+                      className="object-cover"
+                    />
+                    {/* Glow effect */}
+                    <div
+                      className={`absolute inset-0 transition-opacity duration-500 ${
+                        isFlipped ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-t from-green-500/20 via-transparent to-transparent blur-xl"></div>
+                    </div>
                   </div>
                 </div>
               </div>
