@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { ContactFormSchema, ContactFormState } from "@/lib/schemas";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const email_to = process.env.EMAIL_TO || "";
 
 export async function sendEmail(
   prevState: ContactFormState,
@@ -36,7 +37,7 @@ export async function sendEmail(
 
     const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["jeremyramirezgaleotti@gmail.com"],
+      to: [email_to],
       subject: `New message from ${name}`,
       replyTo: email,
       html: `

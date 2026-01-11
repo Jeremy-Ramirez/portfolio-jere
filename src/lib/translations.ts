@@ -52,6 +52,11 @@ export const translations = {
           description:
             "Un bot de Discord rico en características desarrollado en TypeScript. Las capacidades incluyen reproducción de música, integración de canales de voz y comandos de utilidad para mejorar la gestión del servidor y la interacción del usuario.",
         },
+        taskManager: {
+          title: "Aplicación de Gestión de Tareas Full Stack",
+          description:
+            "Aplicación fullstack de gestión de tareas con autenticación AWS Cognito, backend NestJS y funciones serverless Lambda para procesar tareas completadas. Incluye validación Zod, Material-UI, PostgreSQL y arquitectura orientada a microservicios con Docker.",
+        },
       },
     },
     skills: {
@@ -128,6 +133,11 @@ export const translations = {
           title: "Discord Music & Utility Bot",
           description:
             "A feature-rich Discord bot developed in TypeScript. Capabilities include music playback, voice channel integration, and utility commands to enhance server management and user interaction.",
+        },
+        taskManager: {
+          title: "Full Stack Task Management Application",
+          description:
+            "Full-stack task management application with AWS Cognito authentication, NestJS backend, and Lambda serverless functions for completed task processing. Features Zod validation, Material-UI, PostgreSQL, and microservice-oriented architecture with Docker.",
         },
       },
     },
@@ -206,6 +216,11 @@ export const translations = {
           title: "Bot Discord per Musica e Utilità",
           description:
             "Un bot Discord ricco di funzionalità sviluppato in TypeScript. Le capacità includono riproduzione musicale, integrazione di canali vocali e comandi di utilità per migliorare la gestione del server e l'interazione dell'utente.",
+        },
+        taskManager: {
+          title: "Applicazione Full Stack di Gestione Attività",
+          description:
+            "Applicazione fullstack di gestione attività con autenticazione AWS Cognito, backend NestJS e funzioni serverless Lambda per l'elaborazione delle attività completate. Include validazione Zod, Material-UI, PostgreSQL e architettura orientata ai microservizi con Docker.",
         },
       },
     },

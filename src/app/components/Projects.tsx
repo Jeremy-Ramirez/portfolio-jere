@@ -52,6 +52,24 @@ export default function Projects() {
       github: "https://github.com/Jeremy-Ramirez/botdiscord",
       live: "#",
     },
+    {
+      key: "taskManager",
+      image: "/TaskManager.png",
+      tech: [
+        "Next.js",
+        "Material-UI",
+        "TypeScript",
+        "NestJS",
+        "AWS Cognito",
+        "AWS Lambda",
+        "PostgreSQL",
+        "Docker",
+      ],
+      github: "https://github.com/Jeremy-Ramirez/TaskManagementApp-Frontend",
+      githubBackend:
+        "https://github.com/Jeremy-Ramirez/TaskManagementApp-Backend",
+      live: "#",
+    },
   ];
 
   return (
@@ -74,7 +92,7 @@ export default function Projects() {
                 alt={
                   t.projects.descriptions[
                     project.key as keyof typeof t.projects.descriptions
-                  ].title
+                  ]?.title || project.key
                 }
                 width={500}
                 height={300}
@@ -82,18 +100,14 @@ export default function Projects() {
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold  mb-3">
-                  {
-                    t.projects.descriptions[
-                      project.key as keyof typeof t.projects.descriptions
-                    ].title
-                  }
+                  {t.projects.descriptions[
+                    project.key as keyof typeof t.projects.descriptions
+                  ]?.title || "Project Title"}
                 </h3>
                 <p className=" mb-4">
-                  {
-                    t.projects.descriptions[
-                      project.key as keyof typeof t.projects.descriptions
-                    ].description
-                  }
+                  {t.projects.descriptions[
+                    project.key as keyof typeof t.projects.descriptions
+                  ]?.description || "Project description"}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, techIndex) => (
@@ -105,7 +119,7 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 flex-wrap">
                   <Link
                     href={project.github}
                     className="flex items-center gap-2"
@@ -115,6 +129,17 @@ export default function Projects() {
                     <FaGithub size={16} />
                     {t.projects.code}
                   </Link>
+                  {"githubBackend" in project && project.githubBackend && (
+                    <Link
+                      href={project.githubBackend}
+                      className="flex items-center gap-2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaGithub size={16} />
+                      Backend
+                    </Link>
+                  )}
                   <Link
                     href={project.live}
                     className="flex items-center gap-2"
