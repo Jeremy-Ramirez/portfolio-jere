@@ -37,15 +37,10 @@ export const translations = {
           description:
             "Juego multijugador en tiempo real de deducción social. Los jugadores se unen a salas, reciben palabras secretas y deben identificar al impostor entre ellos. Cuenta con sincronización de estado del juego en vivo y votación interactiva.",
         },
-        aiFrontend: {
-          title: "Clasificador de Imágenes IA (Frontend)",
+        aiMuseum: {
+          title: "Clasificador de Imágenes IA para Museo",
           description:
-            "Una aplicación web responsive que clasifica imágenes en categorías culturales usando un modelo de IA personalizado. Cuenta con captura de imágenes en tiempo real, un carrusel interactivo y descripciones de audio para accesibilidad.",
-        },
-        aiBackend: {
-          title: "Clasificador de Imágenes IA (Backend)",
-          description:
-            "API de alto rendimiento impulsada por FastAPI y TensorFlow. Sirve un modelo de clasificación Keras para identificar categorías de objetos y proporciona retroalimentación de audio correspondiente. Optimizado para inferencia rápida.",
+            "Aplicación fullstack que clasifica imágenes en categorías culturales usando un modelo de IA personalizado. Frontend responsive con Next.js permite captura de imágenes en tiempo real, carrusel interactivo y descripciones de audio para accesibilidad. Backend de alto rendimiento con FastAPI y TensorFlow sirve un modelo Keras optimizado para inferencia rápida.",
         },
         discordBot: {
           title: "Bot de Música y Utilidades de Discord",
@@ -100,7 +95,7 @@ export const translations = {
       downloadResume: "Download Resume",
     },
     projects: {
-      title: "Featured Projects",
+      title: "Projects",
       code: "Code",
       liveDemo: "Live Demo",
       descriptions: {
@@ -119,15 +114,10 @@ export const translations = {
           description:
             "Real-time multiplayer social deduction game. Players join rooms, receive secret words, and must identify the impostor among them. Features live game state synchronization and interactive voting.",
         },
-        aiFrontend: {
-          title: "AI Image Classifier (Frontend)",
+        aiMuseum: {
+          title: "AI Image Classifier for Museum",
           description:
-            "A responsive web application that classifies images into cultural categories using a custom AI model. Features real-time image capture, an interactive carousel, and audio descriptions for accessibility.",
-        },
-        aiBackend: {
-          title: "AI Image Classifier (Backend)",
-          description:
-            "High-performance API powered by FastAPI and TensorFlow. Serves a Keras classification model to identify object categories and provides corresponding audio feedback. Optimized for fast inference.",
+            "Full-stack application that classifies images into cultural categories using a custom AI model. Responsive Next.js frontend enables real-time image capture, interactive carousel, and audio descriptions for accessibility. High-performance FastAPI and TensorFlow backend serves an optimized Keras model for fast inference.",
         },
         discordBot: {
           title: "Discord Music & Utility Bot",
@@ -202,15 +192,10 @@ export const translations = {
           description:
             "Gioco multiplayer in tempo reale di deduzione sociale. I giocatori si uniscono alle stanze, ricevono parole segrete e devono identificare l'impostore tra loro. Include sincronizzazione dello stato del gioco dal vivo e votazione interattiva.",
         },
-        aiFrontend: {
-          title: "Classificatore di Immagini AI (Frontend)",
+        aiMuseum: {
+          title: "Classificatore di Immagini AI per Museo",
           description:
-            "Un'applicazione web responsive che classifica le immagini in categorie culturali utilizzando un modello AI personalizzato. Include acquisizione di immagini in tempo reale, un carosello interattivo e descrizioni audio per l'accessibilità.",
-        },
-        aiBackend: {
-          title: "Classificatore di Immagini AI (Backend)",
-          description:
-            "API ad alte prestazioni alimentata da FastAPI e TensorFlow. Serve un modello di classificazione Keras per identificare categorie di oggetti e fornisce feedback audio corrispondente. Ottimizzato per inferenza rapida.",
+            "Applicazione fullstack che classifica le immagini in categorie culturali utilizzando un modello AI personalizzato. Frontend responsive con Next.js consente acquisizione di immagini in tempo reale, carosello interattivo e descrizioni audio per l'accessibilità. Backend ad alte prestazioni con FastAPI e TensorFlow serve un modello Keras ottimizzato per inferenza rapida.",
         },
         discordBot: {
           title: "Bot Discord per Musica e Utilità",

@@ -37,9 +37,9 @@ export default function Home() {
   const menuItems = [
     { title: t.nav.about, href: "#about" },
     { title: t.nav.education, href: "#education" },
+    { title: t.nav.experience, href: "#experience" },
     { title: t.nav.projects, href: "#projects" },
     { title: t.nav.skills, href: "#skills" },
-    { title: t.nav.experience, href: "#experience" },
     { title: t.nav.contact, href: "#contact" },
   ];
 
@@ -244,14 +244,14 @@ export default function Home() {
       {/* Education */}
       <Education />
 
+      {/* Experience */}
+      <Experiences />
+
       {/* Projects */}
       <Projects />
 
       {/* Skills */}
       <Skills />
-
-      {/* Experience */}
-      <Experiences />
 
       {/* Contact Section */}
       <Contact />

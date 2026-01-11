@@ -39,19 +39,20 @@ export default function Projects() {
       live: "https://impostor-app-sage.vercel.app/",
     },
     {
-      key: "aiFrontend",
+      key: "AIMuseum",
       image: "/AIFrontend.png",
-      images: ["/AIFrontend.png"], // Add more images here
-      tech: ["Next.js", "React", "Tailwind CSS", "Axios"],
+      images: ["/AIFrontend.png", "/AIBackend.png"], // Add more images here
+      tech: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "FastAPI",
+        "Python",
+        "TensorFlow",
+        "Keras",
+      ],
       github: "https://github.com/Jeremy-Ramirez/frontend-AI-guide",
-      live: "#",
-    },
-    {
-      key: "aiBackend",
-      image: "/AIBackend.png",
-      images: ["/AIBackend.png"], // Add more images here
-      tech: ["FastAPI", "Python", "TensorFlow", "Keras"],
-      github: "https://github.com/Jeremy-Ramirez/backend-AI-guide",
+      githubBackend: "https://github.com/Jeremy-Ramirez/backend-AI-guide",
       live: "#",
     },
     {

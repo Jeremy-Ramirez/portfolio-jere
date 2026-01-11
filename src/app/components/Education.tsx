@@ -8,7 +8,7 @@ export default function Education() {
   const education = [
     {
       degree: "Master of Science in Engineering-Software Engineering",
-      institution: "University of Southern Denmark, SDU",
+      institution: "University of Southern Denmark, SDU. Denmark",
       period: "2025 - Present",
       description: "Specialization: Next Generation Software Development.",
       courses: [
@@ -20,10 +20,9 @@ export default function Education() {
     },
     {
       degree: "Bachelor of Science in Computer Science",
-      institution: "Escuela Superior Politécnica del Litoral",
+      institution: "Escuela Superior Politécnica del Litoral. Ecuador",
       period: "2017 - 2023",
-      description:
-        "Capstone project focused on developing a full-stack web application using React, React Native, Django, Postgresql. ",
+      description: "",
     },
   ];
   return (
