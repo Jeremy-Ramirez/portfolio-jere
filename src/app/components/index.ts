@@ -5,3 +5,4 @@ export { default as Education } from "./Education";
 export { default as Projects } from "./Projects";
 export { default as Footer } from "./Footer";
 export { LanguageToggle } from "./LanguageToggle";
+export { default as ImageSlider } from "./ImageSlider";

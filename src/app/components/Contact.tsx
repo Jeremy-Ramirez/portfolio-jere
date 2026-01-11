@@ -1,12 +1,15 @@
 import { FaEnvelope } from "react-icons/fa";
 import { RiMapPinLine } from "react-icons/ri";
 import { ContactForm } from "./ContactForm";
+import { useLanguageStoreHydrated } from "@/store/useLanguageStore";
 
 export const Contact = () => {
+  const { t } = useLanguageStoreHydrated();
+
   const contactInfo = [
     {
       icon: RiMapPinLine,
-      title: "Location",
+      title: t?.contact?.location || "Location",
       value: "Odense, Denmark",
     },
   ];
@@ -17,12 +20,11 @@ export const Contact = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-balance">
-              {"Let's connect!"}
+              {t?.contact?.title || "Let's connect!"}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              {
-                "Do you need a hero? My superpower is to make your project a reality."
-              }
+              {t?.contact?.subtitle ||
+                "Do you need a hero? My superpower is to make your project a reality."}
             </p>
           </div>
 
