@@ -18,8 +18,9 @@ export const translations = {
     },
     projects: {
       title: "Proyectos Destacados",
-      code: "Código",
+      code: "Frontend",
       liveDemo: "Demo en Vivo",
+      viewImages: "Ver imágenes",
       descriptions: {
         pizza: {
           title: "Sistema Distribuido para Producción de Pizza I4.0",
@@ -175,8 +176,9 @@ export const translations = {
     },
     projects: {
       title: "Projects",
-      code: "Code",
+      code: "Frontend",
       liveDemo: "Live Demo",
+      viewImages: "View images",
       descriptions: {
         pizza: {
           title: "Distributed System for I4.0 Pizza Production",
@@ -328,8 +330,9 @@ export const translations = {
     },
     projects: {
       title: "Progetti in Evidenza",
-      code: "Codice",
+      code: "Frontend",
       liveDemo: "Demo dal Vivo",
+      viewImages: "Visualizza immagini",
       descriptions: {
         pizza: {
           title: "Sistema Distribuito per la Produzione di Pizza I4.0",

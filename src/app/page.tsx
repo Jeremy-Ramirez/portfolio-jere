@@ -28,9 +28,12 @@ export default function Home() {
   const { t } = useLanguageStoreHydrated(); // get translation state from store
 
   useEffect(() => {
+    localStorage.removeItem("language-storage");
+
     const interval = setInterval(() => {
       setIsFlipped((prev) => !prev);
     }, 3000);
+
     return () => clearInterval(interval);
   }, []);
 

@@ -16,26 +16,28 @@ export default function Projects() {
   const projects = [
     {
       key: "pizza",
-      image: "/PizzaProduction.png",
-      images: ["/PizzaProduction.png", "/BlockBasedProgramming.png"], // Add more images here
+      image: "/PizzaProduction.png", // Esta es la que aparece en la tarjeta
+      images: ["/PizzaProduction.png"], // Add more images here
       tech: ["EDA", "Microservices", "Docker", "UPPAAL", "Formal Verification"],
-      github: "#",
-      live: "#",
+      github:
+        "https://github.com/The-European-Avengers/pizza-i4-architecture-group2",
+      live: "",
     },
     {
       key: "reuse",
       image: "/BlockBasedProgramming.png",
       images: ["/BlockBasedProgramming.png"], // Add more images here
       tech: ["OpenRoberta", "Block-based Programming", "HCI", "User Study"],
-      github: "#",
-      live: "#",
+      github:
+        "https://github.com/VictoriousAnnro/openroberta-lab_enduser/tree/final_version_EndUserSemesterProject",
+      live: "https://reuse-assistant-e4dwemeugwfmafem.germanywestcentral-01.azurewebsites.net/",
     },
     {
       key: "impostor",
       image: "/Impostor.png",
       images: ["/Impostor.png"], // Add more images here
       tech: ["Next.js", "Supabase", "TypeScript", "Tailwind"],
-      github: "#",
+      github: "https://github.com/Jeremy-Ramirez/impostor-app",
       live: "https://impostor-app-sage.vercel.app/",
     },
     {
@@ -53,20 +55,18 @@ export default function Projects() {
       ],
       github: "https://github.com/Jeremy-Ramirez/frontend-AI-guide",
       githubBackend: "https://github.com/Jeremy-Ramirez/backend-AI-guide",
-      live: "#",
-    },
-    {
-      key: "discordBot",
-      image: "/DiscordBot.png",
-      images: ["/DiscordBot.png"], // Add more images here
-      tech: ["TypeScript", "Discord.js", "Node.js"],
-      github: "https://github.com/Jeremy-Ramirez/botdiscord",
-      live: "#",
+      live: "",
     },
     {
       key: "taskManager",
-      image: "/DiscordBot.png",
-      images: ["/DiscordBot.png"], // Add more images here
+      image: "/TaskManager1.jpeg",
+      images: [
+        "/TaskManager1.jpeg",
+        "/TaskManager2.jpeg",
+        "/TaskManager3.jpeg",
+        "/TaskManager4.jpeg",
+        "/HighLevelArchitectureDiagram.png",
+      ], // Add more images here
       tech: [
         "Next.js",
         "Material-UI",
@@ -80,7 +80,15 @@ export default function Projects() {
       github: "https://github.com/Jeremy-Ramirez/TaskManagementApp-Frontend",
       githubBackend:
         "https://github.com/Jeremy-Ramirez/TaskManagementApp-Backend",
-      live: "#",
+      live: "",
+    },
+    {
+      key: "discordBot",
+      image: "/DiscordBot.png",
+      images: ["/DiscordBot.png"], // Add more images here
+      tech: ["TypeScript", "Discord.js", "Node.js"],
+      githubBackend: "https://github.com/Jeremy-Ramirez/botdiscord",
+      live: "",
     },
   ];
 
@@ -94,23 +102,6 @@ export default function Projects() {
     setSliderOpen(false);
     setSelectedProject(null);
     setSelectedImageIndex(0);
-  };
-
-  // Helper function to safely get project title and description
-  const getProjectTranslation = (projectKey: string) => {
-    if (!t || !t.projects || !t.projects.descriptions) {
-      return { title: projectKey, description: "" };
-    }
-
-    const description =
-      t.projects.descriptions[
-        projectKey as keyof typeof t.projects.descriptions
-      ];
-
-    return {
-      title: description?.title || projectKey,
-      description: description?.description || "",
-    };
   };
 
   return (
@@ -145,7 +136,7 @@ export default function Projects() {
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                   <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg font-semibold">
-                    Ver imágenes
+                    {t.projects.viewImages}
                   </span>
                 </div>
               </div>
@@ -171,35 +162,41 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-4 flex-wrap">
-                  <Link
-                    href={project.github}
-                    className="flex items-center gap-2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaGithub size={16} />
-                    {t.projects.code}
-                  </Link>
-                  {"githubBackend" in project && project.githubBackend && (
+                  {project.github && project.github !== "#" && (
                     <Link
-                      href={project.githubBackend}
+                      href={project.github}
                       className="flex items-center gap-2"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <FaGithub size={16} />
-                      Backend
+                      {t.projects.code}
                     </Link>
                   )}
-                  <Link
-                    href={project.live}
-                    className="flex items-center gap-2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaExternalLinkAlt size={16} />
-                    {t.projects.liveDemo}
-                  </Link>
+                  {"githubBackend" in project &&
+                    project.githubBackend &&
+                    project.githubBackend !== "#" && (
+                      <Link
+                        href={project.githubBackend}
+                        className="flex items-center gap-2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaGithub size={16} />
+                        Backend
+                      </Link>
+                    )}
+                  {project.live && project.live !== "#" && (
+                    <Link
+                      href={project.live}
+                      className="flex items-center gap-2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaExternalLinkAlt size={16} />
+                      {t.projects.liveDemo}
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
