@@ -5,26 +5,9 @@ import { useLanguageStoreHydrated } from "@/store/useLanguageStore";
 
 export default function Education() {
   const { t } = useLanguageStoreHydrated();
-  const education = [
-    {
-      degree: "Master of Science in Engineering-Software Engineering",
-      institution: "University of Southern Denmark, SDU. Denmark",
-      period: "2025 - Present",
-      description: "Specialization: Next Generation Software Development.",
-      courses: [
-        "End-User Development",
-        "Advanced Software Architecture and Analysis",
-        "Model-based Software Development",
-        "Software Technologies for Internet of Things",
-      ],
-    },
-    {
-      degree: "Bachelor of Science in Computer Science",
-      institution: "Escuela Superior Politécnica del Litoral. Ecuador",
-      period: "2017 - 2023",
-      description: "",
-    },
-  ];
+
+  // Get education from translation store
+  const education = t?.education?.degrees || [];
   return (
     <section id="education" className="py-16 px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-7xl mx-auto">
@@ -57,9 +40,9 @@ export default function Education() {
                 <p className="text-gray-600 leading-relaxed text-base mb-4">
                   {exp.description}
                 </p>
-                {exp.courses && (
+                {"courses" in exp && exp.courses && (
                   <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                    {exp.courses.map((course, i) => (
+                    {exp.courses.map((course: string, i: number) => (
                       <li key={i}>{course}</li>
                     ))}
                   </ul>

@@ -4,9 +4,11 @@ import { useFormStatus } from "react-dom";
 import { useActionState } from "react";
 import { sendEmail } from "../server_actions/sendEmail";
 import { ContactFormState } from "@/lib/schemas";
+import { useLanguageStoreHydrated } from "@/store/useLanguageStore";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
+  const { t } = useLanguageStoreHydrated();
 
   return (
     <button
@@ -14,7 +16,9 @@ function SubmitButton() {
       disabled={pending}
       className="w-full border rounded-md border-green-600 p-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
     >
-      {pending ? "Sending..." : "Send message"}
+      {pending
+        ? t?.contact?.sending || "Sending..."
+        : t?.contact?.send || "Send message"}
     </button>
   );
 }
@@ -22,6 +26,7 @@ function SubmitButton() {
 export function ContactForm() {
   const initialState: ContactFormState = { message: undefined, errors: {} };
   const [state, dispatch] = useActionState(sendEmail, initialState);
+  const { t } = useLanguageStoreHydrated();
 
   return (
     <form action={dispatch} className="space-y-6">
@@ -30,8 +35,13 @@ export function ContactForm() {
           className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
           role="alert"
         >
-          <strong className="font-bold">Success!</strong>
-          <span className="block sm:inline"> {state.message}</span>
+          <strong className="font-bold">
+            {t?.contact?.successTitle || "Success!"}
+          </strong>
+          <span className="block sm:inline">
+            {" "}
+            {t?.contact?.success || "Message sent successfully!"}
+          </span>
         </div>
       )}
       {state.success === false && state.message && (
@@ -39,19 +49,24 @@ export function ContactForm() {
           className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
           role="alert"
         >
-          <strong className="font-bold">Error!</strong>
-          <span className="block sm:inline"> {state.message}</span>
+          <strong className="font-bold">
+            {t?.contact?.errorTitle || "Error!"}
+          </strong>
+          <span className="block sm:inline">
+            {" "}
+            {t?.contact?.error || "Error sending message. Please try again."}
+          </span>
         </div>
       )}
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
-          Name
+          {t?.contact?.name || "Name"}
         </label>
         <input
           id="name"
           name="name"
           type="text"
-          placeholder="Your name"
+          placeholder={t?.contact?.namePlaceholder || "Your name"}
           required
           className="w-full p-2 shadow-md rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
           aria-describedby="name-error"
@@ -68,13 +83,13 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-2">
-          Email
+          {t?.contact?.email || "Email"}
         </label>
         <input
           id="email"
           name="email"
           type="email"
-          placeholder="Your email"
+          placeholder={t?.contact?.emailPlaceholder || "Your email"}
           required
           className="w-full p-2 shadow-md rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
           aria-describedby="email-error"
@@ -91,12 +106,14 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
-          Message
+          {t?.contact?.message || "Message"}
         </label>
         <textarea
           id="message"
           name="message"
-          placeholder="Tell me about your project..."
+          placeholder={
+            t?.contact?.messagePlaceholder || "Tell me about your project..."
+          }
           rows={5}
           required
           className="w-full p-2 shadow-md rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
